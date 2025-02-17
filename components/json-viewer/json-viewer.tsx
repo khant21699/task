@@ -1,7 +1,12 @@
 "use client";
 
 import { TransformedData } from "@/types";
-import ReactJson from "@microlink/react-json-view";
+import dynamic from "next/dynamic";
+
+const ReactJson = dynamic(() => import("@microlink/react-json-view"), {
+  ssr: false,
+});
+
 interface JsonViewerProps {
   data: TransformedData;
 }
